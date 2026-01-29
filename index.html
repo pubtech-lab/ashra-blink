@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>RED BLINK</title>
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      animation: blink 1s infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes blink {
+      0%, 50% {
+        background: red;
+      }
+      50.01%, 100% {
+        background: black;
+      }
+    }
+
+    #text {
+      color: black;
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div id="text"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get('text');
+
+    if (text) {
+      document.getElementById('text').textContent = text;
+    }
+  </script>
+</body>
+</html>
